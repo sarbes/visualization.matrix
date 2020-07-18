@@ -76,6 +76,14 @@ msgctxt "#30061"
 msgid "Lowers the quality of some shader calculations in order to boost performance (FPS) on slower systems."
 msgstr ""
 
+msgctxt "#30062"
+msgid "CRT effect"
+msgstr ""
+
+msgctxt "#30064"
+msgid "Adds a CRT-like distortion effect."
+msgstr ""
+
 msgctxt "#30100"
 msgid "Kodi"
 msgstr ""

@@ -88,6 +88,13 @@
             <popup>false</popup>
           </control>
         </setting>
+        <setting id="crtcurve" type="boolean" label="30062" help="30063">
+          <default>false</default>
+          <control type="toggle"/>
+          <dependencies>
+            <dependency type="enable" setting="lowpower">false</dependency>
+          </dependencies>
+        </setting>
         <setting id="lowpower" type="boolean" label="30060" help="30061">
           <default>false</default>
           <control type="toggle"/>

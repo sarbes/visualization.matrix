@@ -2,7 +2,7 @@
 void main(void)
 {
     //general stuff
-    vec2 uv = (gl_FragCoord.xy-0.5*iResolution.xy)/iResolution.y;
+    vec2 uv = getUV();
     
     //rain
     vec2 gv = floor(uv*cColumns);

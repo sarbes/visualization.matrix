@@ -105,6 +105,12 @@ vec3 bw2col(float bw, vec2 uv)
   return (basecolor*cColor+peakcolor)*bw;
 }
 
+vec2 getUV()
+{
+  vec2 uv = (gl_FragCoord.xy-0.5*iResolution.xy)/iResolution.y;
+  return uv;
+}
+
 )functions";
 
 std::string fsCommonFunctionsNormal = 
@@ -135,6 +141,21 @@ vec3 bw2col(float bw, vec2 uv)
   return basecolor*cColor+peakcolor;
 }
 
+#ifdef dCrtCurve
+vec2 getUV()
+{
+  vec2 uv = (gl_FragCoord.xy-0.5*iResolution.xy)/iResolution.y;
+  uv = uv / (1.00 - length(uv*.1));
+  return uv;
+}
+#else
+vec2 getUV()
+{
+  vec2 uv = (gl_FragCoord.xy-0.5*iResolution.xy)/iResolution.y;
+  return uv;
+}
+#endif
+
 )functions";
 
 CVisualizationMatrix::CVisualizationMatrix()
@@ -152,6 +173,7 @@ CVisualizationMatrix::CVisualizationMatrix()
   m_dotColor.blue = static_cast<float>(kodi::GetSettingInt("blue")) / 255.f;
   m_lowpower = kodi::GetSettingBoolean("lowpower");
   m_noiseFluctuation = m_lowpower ? (static_cast<float>(kodi::GetSettingInt("noisefluctuation")) * 0.0002f)/m_fallSpeed * 0.25f : (static_cast<float>(kodi::GetSettingInt("noisefluctuation")) * 0.0004f)/m_fallSpeed * 0.25f;
+  m_crtCurve = kodi::GetSettingBoolean("crtcurve");
   m_lastAlbumChange = 0.0;
 }
 
@@ -755,6 +777,11 @@ void CVisualizationMatrix::GatherDefines()
   {
     m_defines += "uniform vec3 iAlbumPosition;\n";
     m_defines += "uniform vec3 iAlbumRGB;\n";
+  }
+
+  if (m_crtCurve)
+  {
+    m_defines += "#define dCrtCurve\n";
   }
 
   m_defines += "uniform float iTime;\n";
