@@ -109,7 +109,7 @@ vec3 bw2col(float bw, vec2 uv)
 
 vec2 getUV()
 {
-  vec2 uv = (gl_FragCoord.xy-0.5*iResolution.xy)/iResolution.y;
+  vec2 uv = (gl_FragCoord.xy-0.5*cResolution.xy)/cResolution.y;
   return uv;
 }
 
@@ -146,14 +146,14 @@ vec3 bw2col(float bw, vec2 uv)
 #ifdef dCrtCurve
 vec2 getUV()
 {
-  vec2 uv = (gl_FragCoord.xy-0.5*iResolution.xy)/iResolution.y;
+  vec2 uv = (gl_FragCoord.xy-0.5*cResolution.xy)/cResolution.y;
   uv = uv / (1.00 - length(uv*.1));
   return uv;
 }
 #else
 vec2 getUV()
 {
-  vec2 uv = (gl_FragCoord.xy-0.5*iResolution.xy)/iResolution.y;
+  vec2 uv = (gl_FragCoord.xy-0.5*cResolution.xy)/cResolution.y;
   return uv;
 }
 #endif
@@ -756,12 +756,10 @@ void CVisualizationMatrix::GatherDefines()
   if (m_state.fbwidth && m_state.fbheight)
   {
     m_defines += "const vec2 cResolution = vec2(" + std::to_string(m_state.fbwidth) + "," + std::to_string(m_state.fbheight) + ");\n";
-    m_defines += "const vec2 iResolution = vec2(" + std::to_string(m_state.fbwidth) + "," + std::to_string(m_state.fbheight) + ");\n";//TODO remove from shaders
   }
   else
   {
     m_defines += "const vec2 cResolution = vec2(" + std::to_string(Width()) + ".," + std::to_string(Height()) + ".);\n";
-    m_defines += "const vec2 iResolution = vec2(" + std::to_string(Width()) + ".," + std::to_string(Height()) + ".);\n";//TODO remove from shaders
   }
 
   m_defines += "uniform sampler2D iChannel0;\n";
