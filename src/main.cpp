@@ -739,6 +739,14 @@ void CVisualizationMatrix::GatherDefines()
   m_defines += "#ifndef texture\n#define texture texture2D\n#endif\n\n";
 #endif
 
+  m_defines += "const float RNDSEED1 = 170.12\n";
+  m_defines += "const float RNDSEED2 = 7572.1\n";
+  m_defines += "const float INTENSITY = 1.0\n";
+  m_defines += "const float MININTENSITY = 0.075\n";
+  m_defines += "const float DISTORTFACTORX = 0.6\n";
+  m_defines += "const float DISTORTFACTORY = 0.4\n";
+  m_defines += "const float VIGNETTEINTENSITY = 0.05\n";
+
   m_defines += "const float cDotSize = " + std::to_string(m_dotSize) + ";\n";
   m_defines += "const float cColumns = " + std::to_string(static_cast<float>(Width())/(m_dotSize*2.0)) + ";\n";
   m_defines += "const float cNoiseFluctuation = " + std::to_string(m_noiseFluctuation) + ";\n";
@@ -786,18 +794,6 @@ void CVisualizationMatrix::GatherDefines()
   }
 
   m_defines += "uniform float iTime;\n";
-
-  //TODO: make pretty
-  m_defines += "#define RNDSEED1 170.12\n";
-  m_defines += "#define RNDSEED2 7572.1\n";
-
-  m_defines += "#define INTENSITY 1.0\n";
-  m_defines += "#define MININTENSITY 0.075\n";
-
-  m_defines += "#define DISTORTFACTORX 0.6\n";
-  m_defines += "#define DISTORTFACTORY 0.4\n";
-
-  m_defines += "#define VIGNETTEINTENSITY 0.05\n";
 
   if (m_lowpower)
   {
