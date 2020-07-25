@@ -81,8 +81,7 @@ std::string fsCommonFunctionsLowPower =
 R"functions(float h11(float p)
 {
   //return fract(fract(p * .1031) * (p + 33.33));
-  //return fract(p*cRNDSEED1)*cRNDSEED2 + 20.12345;
-  return fract(373.151351317/(p*.000173));
+  return fract(2156943.37373737/(p));
 }
 
 float waveform(vec2 uv)
