@@ -94,8 +94,8 @@ float waveform(vec2 uv)
 #ifdef dNoise
 float noise(vec2 gv)
 {
-	//return texture(iChannel2, vec2(gl_FragCoord.xy/(256.*iDotSize) +iTime*cNoiseFluctuation)).x;
-	return texture(iChannel2, vec2(gl_FragCoord.xy/(256.*iDotSize))).x;
+	//return texture(iChannel2, vec2(gl_FragCoord.xy/(256.*cDotSize) +iTime*cNoiseFluctuation)).x;
+	return texture(iChannel2, vec2(gl_FragCoord.xy/(256.*cDotSize))).x;
 }
 #endif
 
@@ -130,7 +130,7 @@ float waveform(vec2 uv)
 #ifdef dNoise
 float noise(vec2 gv)
 {
-	//return texture(iChannel2, (gv/cResolution*iDotSize*400.33) + iTime*cNoiseFluctuation).x;
+	//return texture(iChannel2, (gv/cResolution*cDotSize*400.33) + iTime*cNoiseFluctuation).x;
   return texture(iChannel2, (gv*.035431) + iTime*cNoiseFluctuation).x;
 }
 #endif
@@ -739,7 +739,6 @@ void CVisualizationMatrix::GatherDefines()
   m_defines += "#ifndef texture\n#define texture texture2D\n#endif\n\n";
 #endif
 
-  m_defines += "const float iDotSize = " + std::to_string(m_dotSize) + ";\n";//TODO remove from shaders
   m_defines += "const float cDotSize = " + std::to_string(m_dotSize) + ";\n";
   m_defines += "const float cColumns = " + std::to_string(static_cast<float>(Width())/(m_dotSize*2.0)) + ";\n";
   m_defines += "const float cNoiseFluctuation = " + std::to_string(m_noiseFluctuation) + ";\n";
