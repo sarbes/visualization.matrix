@@ -80,7 +80,9 @@ const std::vector<std::string> g_fileTextures =
 std::string fsCommonFunctionsLowPower = 
 R"functions(float h11(float p)
 {
-  return fract(fract(p * .1031) * (p + 33.33));
+  //return fract(fract(p * .1031) * (p + 33.33));
+  //return fract(p*RNDSEED1)*RNDSEED2 + 20.12345;
+  return (p*170.1237) + 20.12345;
 }
 
 float waveform(vec2 uv)
