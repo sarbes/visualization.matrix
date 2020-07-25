@@ -28,13 +28,13 @@ void main(void)
 	bw *= noise(gv);
 
 	//vignette effect
-	float vignette = length(uv)*VIGNETTEINTENSITY;
+	float vignette = length(uv)*cVIGNETTEINTENSITY;
 	bw -= vignette;
 	
     //pseudo pixels (dots)
     vec3 col = bw2col(bw,uv);
 
-    col *= INTENSITY;   
+    col *= cINTENSITY;   
     //col.gb = vec2(0.);
     //col.r = wave; 
     

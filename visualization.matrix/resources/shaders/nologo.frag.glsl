@@ -21,13 +21,13 @@ void main(void)
 	bw *= noise(gv);
 
 	//vignette effect
-	float vignette = length(uv)*VIGNETTEINTENSITY;
+	float vignette = length(uv)*cVIGNETTEINTENSITY;
 	bw -= vignette;
 	
     //pseudo pixels (dots)
     vec3 col = bw2col(bw,uv);
 
-    col *= INTENSITY;    
+    col *= cINTENSITY;    
     
     FragColor = vec4(col,1.0);
 }

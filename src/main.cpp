@@ -81,7 +81,7 @@ std::string fsCommonFunctionsLowPower =
 R"functions(float h11(float p)
 {
   //return fract(fract(p * .1031) * (p + 33.33));
-  //return fract(p*RNDSEED1)*RNDSEED2 + 20.12345;
+  //return fract(p*cRNDSEED1)*cRNDSEED2 + 20.12345;
   return (p*170.1237) + 20.12345;
 }
 
@@ -118,7 +118,7 @@ vec2 getUV()
 std::string fsCommonFunctionsNormal = 
 R"functions(float h11(float p)
 {
-  return fract(20.12345+sin(p*RNDSEED1)*RNDSEED2);
+  return fract(20.12345+sin(p*cRNDSEED1)*cRNDSEED2);
 }
 
 float waveform(vec2 uv)
@@ -739,13 +739,13 @@ void CVisualizationMatrix::GatherDefines()
   m_defines += "#ifndef texture\n#define texture texture2D\n#endif\n\n";
 #endif
 
-  m_defines += "const float RNDSEED1 = 170.12\n";
-  m_defines += "const float RNDSEED2 = 7572.1\n";
-  m_defines += "const float INTENSITY = 1.0\n";
-  m_defines += "const float MININTENSITY = 0.075\n";
-  m_defines += "const float DISTORTFACTORX = 0.6\n";
-  m_defines += "const float DISTORTFACTORY = 0.4\n";
-  m_defines += "const float VIGNETTEINTENSITY = 0.05\n";
+  m_defines += "const float cRNDSEED1 = 170.12\n";
+  m_defines += "const float cRNDSEED2 = 7572.1\n";
+  m_defines += "const float cINTENSITY = 1.0\n";
+  m_defines += "const float cMININTENSITY = 0.075\n";
+  m_defines += "const float cDISTORTFACTORX = 0.6\n";
+  m_defines += "const float cDISTORTFACTORY = 0.4\n";
+  m_defines += "const float cVIGNETTEINTENSITY = 0.05\n";
 
   m_defines += "const float cDotSize = " + std::to_string(m_dotSize) + ";\n";
   m_defines += "const float cColumns = " + std::to_string(static_cast<float>(Width())/(m_dotSize*2.0)) + ";\n";

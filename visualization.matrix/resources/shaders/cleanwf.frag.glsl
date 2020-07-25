@@ -23,7 +23,7 @@ void main(void)
     //pseudo pixels (dots)
     vec3 col = bw2col(bw,uv);
     
-    //col *= INTENSITY;
+    //col *= cINTENSITY;
     
     FragColor = vec4(col,1.0);
 }
