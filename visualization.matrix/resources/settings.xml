@@ -8,6 +8,10 @@
           <default>0</default>
           <control type="spinner" format="string"/>
         </setting>
+        <setting id="dotmode" type="boolean" label="30009" help="30010">
+          <default>false</default>
+          <control type="toggle"/>
+        </setting>
         <setting id="dotsize" type="integer" label="30001" help="30002">
           <default>4</default>
           <constraints>
@@ -15,6 +19,9 @@
             <step>1</step>
             <maximum>10</maximum>
           </constraints>
+          <dependencies>
+            <dependency type="enable" setting="dotmode">true</dependency>
+          </dependencies>
           <control type="slider" format="integer">
             <popup>false</popup>
           </control>

@@ -81,6 +81,7 @@ private:
   float m_albumY = 0.0;
   int m_bitsPrecision = 0;
   int m_currentPreset = 0;
+  float m_dotMode = false;
   float m_dotSize = 0.0;
   float m_fallSpeed = 0.25;
   float m_distortThreshold = 0.0;

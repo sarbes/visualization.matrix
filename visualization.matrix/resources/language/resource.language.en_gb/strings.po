@@ -52,6 +52,14 @@ msgctxt "#30008"
 msgid "Threshold of loudness at which vertical distortion occurs."
 msgstr ""
 
+msgctxt "#30009"
+msgid "User defined pixel size"
+msgstr ""
+
+msgctxt "#30010"
+msgid "Enables the manual setting of the size of the dots."
+msgstr ""
+
 msgctxt "#30050"
 msgid "Red"
 msgstr ""

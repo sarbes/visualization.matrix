@@ -167,7 +167,17 @@ CVisualizationMatrix::CVisualizationMatrix()
     m_pcm(new float[AUDIO_BUFFER]())
 {
   m_currentPreset = kodi::GetSettingInt("lastpresetidx");
-  m_dotSize = static_cast<float>(kodi::GetSettingInt("dotsize"));
+  m_dotMode = static_cast<float>(kodi::GetSettingBoolean("dotmode"));
+  if (m_dotMode)
+  {
+    m_dotSize = static_cast<float>(kodi::GetSettingInt("dotsize"));
+  }
+  else
+  {
+    if (Height() <= 900) m_dotSize = 3.;
+    else if (Height() <= 1500) m_dotSize = 4.;
+    else  m_dotSize = 5.;
+  }
   m_fallSpeed = static_cast<float>(kodi::GetSettingInt("fallspeed")) * .01;
   m_distortThreshold = static_cast<float>(kodi::GetSettingInt("distortthreshold")) * .005;
   m_dotColor.red = static_cast<float>(kodi::GetSettingInt("red")) / 255.f;

@@ -52,6 +52,14 @@ msgctxt "#30008"
 msgid "Legt fest, ab welcher Lautstärke vertikale Verzerrungen auftreten."
 msgstr ""
 
+msgctxt "#30009"
+msgid "Manuelles setzen der Pixelgröße"
+msgstr ""
+
+msgctxt "#30010"
+msgid "Erlaubt das manuelle Setzen der Pixelgröße."
+msgstr ""
+
 msgctxt "#30050"
 msgid "Rot"
 msgstr ""
